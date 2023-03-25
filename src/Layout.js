@@ -17,9 +17,9 @@ function Layout() {
   const [currentNote, setCurrentNote] = useState(-1);
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
-  const delete_url = "https://66f27lpuzk3tawrwde2kdcrf4q0emsjl.lambda-url.ca-central-1.on.aws/"
-  const save_url = "https://wkacmlsld3jsyg75aa3zgzuarm0zidvk.lambda-url.ca-central-1.on.aws/"
-  const get_url = "https://huer4x76wi5zzl2t5axo45lzry0kzvbt.lambda-url.ca-central-1.on.aws/"
+  const delete_url = "https://ppdfsk7vrqrggpkqspfch6zere0vtedy.lambda-url.ca-central-1.on.aws/"
+  const save_url = "https://zqnycazvha7pjm5ecqeaf63czm0zjyvi.lambda-url.ca-central-1.on.aws/"
+  const get_url = "https://ht7i4c6cjfgvgfd7xw33eocpcy0llcrm.lambda-url.ca-central-1.on.aws/"
   const login = useGoogleLogin({
     clientId: "672911093579-k20fo31h339ot56mem0upv1vtq8simme.apps.googleusercontent.com",
     onSuccess: (codeResponse) => setUser(codeResponse),
@@ -32,7 +32,7 @@ function Layout() {
         .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
           headers: {
             Authorization: `Bearer ${user.access_token}`,
-            Accept: 'application/json',
+            Accept: 'application/json'
           },
         })
         .then((res) => {
@@ -113,7 +113,7 @@ function Layout() {
     const res = await fetch (`${delete_url}`,{
       method: "DELETE",
       headers:{
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(
         {id:id, "email": profile.email}
